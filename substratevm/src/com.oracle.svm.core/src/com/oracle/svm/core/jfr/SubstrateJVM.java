@@ -540,7 +540,14 @@ public class SubstrateJVM {
         return true;
     }
 
-    /** See {@link JVM#setCutoff}. */
+    @Uninterruptible(reason = "Called from uninterruptible code.", mayBeInlined = true)
+    long getThreshold(JfrEvent event) {
+        return eventSettings[(int) event.getId()].getThresholdTicks();
+    }
+
+    /**
+     * See {@link JVM#setCutoff}.
+     */
     public boolean setCutoff(long eventTypeId, long cutoffTicks) {
         eventSettings[NumUtil.safeToInt(eventTypeId)].setCutoffTicks(cutoffTicks);
         return true;
