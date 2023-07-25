@@ -33,6 +33,7 @@ import org.graalvm.nativeimage.StackValue;
 import org.graalvm.word.UnsignedWord;
 import org.graalvm.word.WordFactory;
 
+import com.oracle.svm.core.JavaMainWrapper;
 import com.oracle.svm.core.SubstrateUtil;
 import com.oracle.svm.core.UnmanagedMemoryUtil;
 import com.oracle.svm.core.Uninterruptible;
@@ -40,6 +41,7 @@ import com.oracle.svm.core.jfr.events.ExecutionSampleEvent;
 import com.oracle.svm.core.jfr.events.ThreadEndEvent;
 import com.oracle.svm.core.jfr.events.ThreadStartEvent;
 import com.oracle.svm.core.thread.JavaThreads;
+import com.oracle.svm.core.thread.PlatformThreads;
 import com.oracle.svm.core.thread.Target_java_lang_Thread;
 import com.oracle.svm.core.thread.ThreadListener;
 import com.oracle.svm.core.thread.VMOperation;

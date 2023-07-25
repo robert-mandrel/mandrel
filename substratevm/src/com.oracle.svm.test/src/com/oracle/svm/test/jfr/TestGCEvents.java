@@ -41,7 +41,11 @@ public class TestGCEvents extends JfrTest {
     }
 
     @Test
-    public void test() throws Exception {
+    public void test() throws Throwable {
+        String[] events = new String[]{JfrEvent.GarbageCollection.getName(), JfrEvent.GCPhasePause.getName(), JfrEvent.GCPhasePauseLevel1.getName(),
+                        JfrEvent.GCPhasePauseLevel2.getName(), JfrEvent.ExecuteVMOperation.getName()};
+        Recording recording = startRecording(events);
+
         System.gc();
     }
 }

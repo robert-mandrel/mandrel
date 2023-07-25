@@ -36,7 +36,6 @@ import com.oracle.svm.core.jfr.JfrTicks;
 import com.oracle.svm.core.jfr.SubstrateJVM;
 
 public class ThreadStartEvent {
-
     @Uninterruptible(reason = "Accesses a JFR buffer.")
     public static void emit(IsolateThread isolateThread) {
         SubstrateJVM svm = SubstrateJVM.get();

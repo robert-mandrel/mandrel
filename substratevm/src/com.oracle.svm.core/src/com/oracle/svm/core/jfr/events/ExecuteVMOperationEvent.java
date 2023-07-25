@@ -46,14 +46,19 @@ public class ExecuteVMOperationEvent {
         if (!HasJfrSupport.get()) {
             return;
         }
+        emit0(vmOperation, requestingThreadId, startTicks);
+    }
 
-        if (SubstrateJVM.isRecording() && SubstrateJVM.get().isEnabled(JfrEvent.ExecuteVMOperation)) {
+    @Uninterruptible(reason = "Accesses a JFR buffer.")
+    private static void emit0(VMOperation vmOperation, long requestingThreadId, long startTicks) {
+        long duration = JfrTicks.duration(startTicks);
+        if (JfrEvent.ExecuteVMOperation.shouldEmit(duration)) {
             JfrNativeEventWriterData data = StackValue.get(JfrNativeEventWriterData.class);
             JfrNativeEventWriterDataAccess.initializeThreadLocalNativeBuffer(data);
 
             JfrNativeEventWriter.beginSmallEvent(data, JfrEvent.ExecuteVMOperation);
             JfrNativeEventWriter.putLong(data, startTicks);
-            JfrNativeEventWriter.putLong(data, JfrTicks.elapsedTicks() - startTicks);
+            JfrNativeEventWriter.putLong(data, duration);
             JfrNativeEventWriter.putEventThread(data);
             JfrNativeEventWriter.putLong(data, vmOperation.getId() + 1); // id starts with 1
             JfrNativeEventWriter.putBoolean(data, vmOperation.getCausesSafepoint());
