@@ -82,8 +82,8 @@ public class JfrManager {
     public RuntimeSupport.Hook startupHook() {
         return isFirstIsolate -> {
             parseFlightRecorderLogging(SubstrateOptions.FlightRecorderLogging.getValue());
+            periodicEventSetup();
             if (SubstrateOptions.FlightRecorder.getValue()) {
-                periodicEventSetup();
                 initRecording();
             }
         };
