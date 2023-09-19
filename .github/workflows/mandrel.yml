@@ -29,7 +29,7 @@ concurrency:
 jobs:
   q-main-ea:
     name: "Q main M 22.3 EA"
-    uses: graalvm/mandrel/.github/workflows/base.yml@default
+    uses: graalvm/mandrel/.github/workflows/base.yml@5c44969947cbeff84ca9ccedc127cb6730b82415
     with:
       quarkus-version: "main"
       repo: ${{ github.repository }}
@@ -38,7 +38,7 @@ jobs:
       jdk: "17/ea"
   q-main-ea-win:
     name: "Q main M 22.3 windows EA"
-    uses: graalvm/mandrel/.github/workflows/base-windows.yml@default
+    uses: graalvm/mandrel/.github/workflows/base-windows.yml@5c44969947cbeff84ca9ccedc127cb6730b82415
     with:
       quarkus-version: "main"
       repo: ${{ github.repository }}
@@ -47,7 +47,7 @@ jobs:
       jdk: "17/ea"
   q-latest-ea:
     name: "Q latest M 22.3 EA"
-    uses: graalvm/mandrel/.github/workflows/base.yml@default
+    uses: graalvm/mandrel/.github/workflows/base.yml@5c44969947cbeff84ca9ccedc127cb6730b82415
     with:
       quarkus-version: "latest"
       repo: ${{ github.repository }}
@@ -56,7 +56,7 @@ jobs:
       jdk: "17/ea"
   q-latest-ea-win:
     name: "Q latest M 22.3 windows EA"
-    uses: graalvm/mandrel/.github/workflows/base-windows.yml@default
+    uses: graalvm/mandrel/.github/workflows/base-windows.yml@5c44969947cbeff84ca9ccedc127cb6730b82415
     with:
       quarkus-version: "latest"
       repo: ${{ github.repository }}
