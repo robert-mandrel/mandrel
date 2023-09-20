@@ -31,6 +31,7 @@ jobs:
     name: "Q main M 22.3 EA"
     uses: graalvm/mandrel/.github/workflows/base.yml@default
     with:
+      build-type: "mandrel-source-nolocalmvn"
       quarkus-version: "main"
       repo: ${{ github.repository }}
       version: ${{ github.ref }}
@@ -40,6 +41,7 @@ jobs:
     name: "Q main M 22.3 windows EA"
     uses: graalvm/mandrel/.github/workflows/base-windows.yml@default
     with:
+      build-type: "mandrel-source-nolocalmvn"
       quarkus-version: "main"
       repo: ${{ github.repository }}
       version: ${{ github.ref }}
@@ -49,6 +51,7 @@ jobs:
     name: "Q latest M 22.3 EA"
     uses: graalvm/mandrel/.github/workflows/base.yml@default
     with:
+      build-type: "mandrel-source-nolocalmvn"
       quarkus-version: "latest"
       repo: ${{ github.repository }}
       version: ${{ github.ref }}
@@ -58,6 +61,7 @@ jobs:
     name: "Q latest M 22.3 windows EA"
     uses: graalvm/mandrel/.github/workflows/base-windows.yml@default
     with:
+      build-type: "mandrel-source-nolocalmvn"
       quarkus-version: "latest"
       repo: ${{ github.repository }}
       version: ${{ github.ref }}
